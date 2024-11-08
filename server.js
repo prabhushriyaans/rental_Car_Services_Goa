@@ -19,7 +19,8 @@ const cars = {
     12: { name: 'i20', price: 'Rs 1,300-1,500', year: '2018-2024', details: '18-20 km/l, manual/automatic, 5 seats, petrol/diesel' },
     13: { name: 'i10', price: 'Rs 1,100-1,400', year: '2018-2024', details: '18-20 km/l, manual/automatic, 5 seats, petrol' },
     14: { name: 'Ignis', price: 'Rs 1,100-1,400', year: '2018-2024', details: '18-20 km/l, manual/automatic, 5 seats, petrol' },
-    15: { name: 'Fornx', price: 'Rs 1,300-1,700', year: '2023-2024', details: '18-20 km/l, manual/automatic, 5 seats, petrol/diesel' }
+    15: { name: 'Dzire', price: 'Rs 1300-1800', year: '2018-2024', details: 'Mileage-18-20 km/l Transmission- manual/automatic  Seat-7 Fule type -petrol/diesel' },
+    16: {name: 'Fronx', price: 'Rs 1300-1700', year: '-2023-2024', details: 'Mileage-18-20 km/l Transmission- manual/automatic Seat-5 Fule type -petrol/diesel'}
 };
 
 app.get('/car/:id', (req, res) => {
