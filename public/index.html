@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmalkar's Premium Cab Rentals</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>GO'N Car Rentals</h1>
+        <p>Your Goa adventure starts here. Rent a car & explore freely!</p>
+    </header>
+
+    <section class="car-list">
+        <div class="car-item" data-id="1">
+            <img src="swift.jpg" alt="Swift">
+            <h2>Swift</h2>
+        </div>
+        <div class="car-item" data-id="2">
+            <img src="baleno.jpg" alt="Baleno">
+            <h2>Baleno</h2>
+        </div>
+        <div class="car-item" data-id="3">
+            <img src="ertiga.jpg" alt="Ertiga">
+            <h2>Ertiga</h2>
+        </div>
+        <div class="car-item" data-id="4">
+            <img src="brezza.jpg" alt="Brezza">
+            <h2>Brezza</h2>
+        </div>
+        <div class="car-item" data-id="5">
+            <img src="creta.jpg" alt="Creta">
+            <h2>Creta</h2>
+        </div>
+        <div class="car-item" data-id="6">
+            <img src="venue.jpg" alt="Venue">
+            <h2>Venue</h2>
+        </div>
+        <div class="car-item" data-id="7">
+            <img src="alcazar.jpg" alt="Alcazar">
+            <h2>Alcazar</h2>
+        </div>
+        <div class="car-item" data-id="8">
+            <img src="thar.jpg" alt="Thar">
+            <h2>Thar</h2>
+        </div>
+        <div class="car-item" data-id="9">
+            <img src="innova-crysta.jpg" alt="Innova Crysta">
+            <h2>Innova Crysta</h2>
+        </div>
+        <div class="car-item" data-id="10">
+            <img src="innova-hycross.jpg" alt="Innova Hycross">
+            <h2>Innova Hycross</h2>
+        </div>
+        <div class="car-item" data-id="11">
+            <img src="fortuner.jpg" alt="Fortuner">
+            <h2>Fortuner</h2>
+        </div>
+        <div class="car-item" data-id="12">
+            <img src="i20.jpg" alt="i20">
+            <h2>i20</h2>
+        </div>
+        <div class="car-item" data-id="13">
+            <img src="i10.jpg" alt="i10">
+            <h2>i10</h2>
+        </div>
+        <div class="car-item" data-id="14">
+            <img src="ignis.jpg" alt="Ignis">
+            <h2>Ignis</h2>
+        </div>
+        <div class="car-item" data-id="15">
+            <img src="fornx.jpg" alt="Fornx">
+            <h2>Fornx</h2>
+        </div>
+    </section>
+
+    <!-- Modal for displaying car details -->
+    <div class="car-details-modal" id="carModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="carName">Car Name</h2>
+            <p><strong>Price:</strong> <span id="carPrice"></span></p>
+            <p><strong>Year:</strong> <span id="carYear"></span></p>
+            <p><strong>Details:</strong> <span id="carDetails"></span></p>
+        </div>
+    </div>
+
+    <div id="map" style="width:100%; height:400px;"></div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+    <script src="script.js"></script>
+</body>
+</html>
