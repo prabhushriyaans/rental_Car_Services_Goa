@@ -21,12 +21,12 @@ document.addEventListener("DOMContentLoaded", function() {
     whatsappButton.href = "https://wa.me/919021306734";
     whatsappButton.target = "_blank";
     whatsappButton.className = "contact-btn whatsapp";
-    whatsappButton.textContent = "Contact on WhatsApp";
+    whatsappButton.textContent = "WhatsApp";
     const emailButton = document.createElement('a');
     emailButton.href = "mailto:gonrentalservices@gmail.com";
     emailButton.target = "_blank";
     emailButton.className = "contact-btn email";
-    emailButton.textContent = "Email the Owner";
+    emailButton.textContent = "Email";
     contactButtonsContainer.appendChild(whatsappButton);
     contactButtonsContainer.appendChild(emailButton);
     document.body.appendChild(contactButtonsContainer);
@@ -68,6 +68,56 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener("click", function(event) {
         if (event.target == carModal) {
             carModal.style.display = "none";
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const carList = document.getElementById('carList');
+    const modal = document.getElementById('carModal');
+    const modalClose = modal.querySelector('.close');
+    const carName = document.getElementById('carName');
+    const carPrice = document.getElementById('carPrice');
+    const carYear = document.getElementById('carYear');
+    const carDetails = document.getElementById('carDetails');
+
+    // Fetch car data from the server
+    fetch('http://localhost:3000/cars')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(car => {
+                const carItem = document.createElement('div');
+                carItem.classList.add('car-item');
+                carItem.setAttribute('data-id', car.id);
+                carItem.innerHTML = `
+                    <img src="images/${car.name.toLowerCase().replace(/\s+/g, '-')}.jpg" alt="${car.name}">
+                    <h2>${car.name}</h2>
+                `;
+                carList.appendChild(carItem);
+
+                carItem.addEventListener('click', () => {
+                    fetch(`http://localhost:3000/${car.id}`)
+                        .then(response => response.json())
+                        .then(carData => {
+                            carName.textContent = carData.name;
+                            carPrice.textContent = carData.price;
+                            carYear.textContent = carData.year;
+                            carDetails.textContent = carData.details;
+                            modal.style.display = 'flex';
+                        })
+                        .catch(error => console.error('Error fetching car details:', error));
+                });
+            });
+        })
+        .catch(error => console.error('Error fetching car list:', error));
+
+    modalClose.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
         }
     });
 });
