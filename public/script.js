@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    const WA_URL = window.env.WA_URL
     // Initialize Map
     function initMap() {
         const carLocation = { lat: 15.2993, lng: 74.1240 }; // Default location for demo purposes
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const contactButtonsContainer = document.createElement('div');
     contactButtonsContainer.className = 'contact-buttons';
     const whatsappButton = document.createElement('a');
-    whatsappButton.href = "https://wa.me/919021306734";
+    whatsappButton.href = {WA_URL};
     whatsappButton.target = "_blank";
     whatsappButton.className = "contact-btn whatsapp";
     whatsappButton.textContent = "WhatsApp";
