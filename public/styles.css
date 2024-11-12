@@ -166,13 +166,22 @@ header p {
 }
 
 .email {
-    background-color: #4caf50;
-    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+    background-color: #2c22b6;
+    box-shadow: 0 5px 15px rgba(41, 48, 185, 0.4);
 }
 
 .email:hover {
-    background-color: #43a047;
-    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.5);
+    background-color: #1d49a7;
+    box-shadow: 0 8px 20px rgba(59, 82, 196, 0.5);
+}
+.contact-btn.instagram {
+    background-color: #ce9696; /* Instagram color */
+    box-shadow: 0 5px 15px rgba(170, 111, 111, 0.4);
+}
+
+.contact-btn.instagram:hover {
+    background-color: #c07a7a;
+    box-shadow: 0 8px 20px rgba(231, 96, 96, 0.5);
 }
 
 @media (max-width: 768px) {
