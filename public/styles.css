@@ -145,7 +145,7 @@ header h1, header p {
 }
 
 .close {
-    color: #aaa;
+    color:white;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -172,7 +172,7 @@ header h1, header p {
     font-weight: 600;
     border-radius: 10px;
     text-decoration: none;
-    color: rgb(137, 130, 130);
+    color: rgb(255, 255, 255);
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
@@ -224,3 +224,5 @@ header h1, header p {
         padding: 20px;
     }
 }
+.available { color: green; font-weight: bold; }
+.booked { color: red; font-weight: bold; }

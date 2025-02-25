@@ -29,7 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
         carNameElement.textContent = carData.name || 'N/A';
         carPriceElement.textContent = carData.price || 'N/A';
         carYearElement.textContent = carData.year || 'N/A';
-        carDetailsElement.textContent = carData.details || 'N/A';
+        carDetailsElement.innerHTML = `
+            <p>${carData.details || 'N/A'}</p>
+            <p><strong>Status:</strong> ${carData.availability ? carData.availability : 'Unknown'}</p>
+        `;
         modal.style.display = 'block';
     }
 
@@ -55,27 +58,45 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
 
+    function showCarDetails(carId) {
+        fetch(`/car/${carId}`)
+            .then(response => response.json())
+            .then(car => {
+                let carDetailsHTML = `
+                    <h3>${car.name}</h3>
+                    <p><strong>Price-</strong> ${car.price}</p>
+                    <p><strong>Year-</strong> ${car.year}</p>
+                    <p>${car.details}</p>
+                    <p><strong>Status-</strong> ${car.availability ? car.availability : 'Unknown'}</p>
+                `;
+
+                document.getElementById('carDetails').innerHTML = carDetailsHTML;
+                document.getElementById('carDetailsPopup').style.display = 'block';
+            })
+            .catch(error => console.error('Error fetching car details:', error));
+    }
+
     // Create and append contact buttons
-    createContactButtons([
-        {
-            href: "https://wa.me/919021306734",
-            imgSrc: "whatsapp.jpg",
-            alt: "WhatsApp",
-            style: { borderRadius: "50%" },
-        },
-        {
-            href: "mailto:gonrentalservices@gmail.com",
-            imgSrc: "email.jpg",
-            alt: "Email",
-            style: { borderRadius: "20%" },
-        },
-        {
-            href: "https://www.instagram.com/gon_car_rentals",
-            imgSrc: "insta1.jpg",
-            alt: "Instagram",
-            style: { borderRadius: "60%" },
-        },
-    ]);
+    // createContactButtons([
+    //     {
+    //         href: "https://wa.me/919021306734",
+    //         imgSrc: "whatsapp.jpg",
+    //         alt: "WhatsApp",
+    //         style: { borderRadius: "50%" },
+    //     },
+    //     {
+    //         href: "mailto:gonrentalservices@gmail.com",
+    //         imgSrc: "email.jpg",
+    //         alt: "Email",
+    //         style: { borderRadius: "20%" },
+    //     },
+    //     {
+    //         href: "https://www.instagram.com/gon_car_rentals",
+    //         imgSrc: "insta1.jpg",
+    //         alt: "Instagram",
+    //         style: { borderRadius: "60%" },
+    //     },
+    // ]);
 
     function createContactButtons(buttons) {
         const container = document.createElement('div');

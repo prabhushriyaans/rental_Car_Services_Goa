@@ -6,97 +6,157 @@
         <title>Go'N</title>
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
+        <link rel="html" href="tail.html">
+        <style>
+            .admin-icon {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+            }
+            .available { color: green; font-weight: bold; }
+            .booked { color: red; font-weight: bold; }
+            .social-icons {
+    display: flex;
+    gap: 10px;
+    position:absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.social-icons img {
+    width: 40px; /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
+    cursor: pointer;
+    align-items: center;
+}
+
+        </style>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
     </head>
     <body class="bg-gray-100 text-gray-900">
-        <header class="bg-gradient-to-r from-indigo-800 to-blue-600 text-white py-16 text-center shadow-lg">
+        <!-- <p><strong>Status:</strong> <span id="statusText"></span></p> -->
+
+<script>
+    const statusText = document.getElementById('statusText');
+    const statusValue = "Available"; // Replace this with dynamic status from your backend
+
+    statusText.textContent = statusValue;
+    statusText.className = statusValue === "Available" ? "available" : "booked";
+</script>
+
+        <header class="bg-gradient-to-r from-indigo-800 to-blue-600 text-white py-16 text-center shadow-lg relative">
             <img src="GON.jpg" alt="Go'N car rental logo" class="mx-auto w-32 h-32 rounded-full">
             <h1 class="text-5xl font-bold mt-4">Go'N Car Rentals</h1>
             <p class="text-xl italic mt-2">Your Goa adventure starts here. Rent a car & explore freely!</p>
+            <img src="https://th.bing.com/th/id/OIP.MVYjXHphzZNSEmdUSrkjGwHaHa?rs=1&pid=ImgDetMain" alt="Admin" class="admin-icon" onclick="navigateToAdmin()">
+            <div class="social-icons">
+                <a href="https://wa.me/919021306734" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                </a>
+                <a href="mailto:gonrentalservices@gmail.com">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" alt="Email">
+                </a>
+                <a href="https://www.instagram.com/gon_car_rentals" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+                </a>
+            </div>
         </header>
 
-    <section class="car-list">
-        <div class="car-item" data-id="1">
-            <img src="https://img.indianautosblog.com/2020/03/24/maruti-swift-front-three-quarters-left-side-4a8f.jpg" alt="Swift">
-            <h2>Swift</h2>
-        </div>
-        <div class="car-item" data-id="2">
-            <img src="https://imgd.aeplcdn.com/1280x720/cw/ec/37710/Maruti-Suzuki-Baleno-Right-Front-Three-Quarter-147420.jpg?wm=0&q=100" alt="Baleno">
-            <h2>Baleno</h2>
-        </div>
-        <div class="car-item" data-id="3">
-            <img src="https://www.carscoops.com/wp-content/uploads/2018/04/suzuki-ertiga_web.jpg" alt="Ertiga">
-            <h2>Ertiga</h2>
-        </div>
-        <div class="car-item" data-id="4">
-            <img src="https://img-ik.cars.co.za/news-site-za/images/2022/06/Maruti-Suzuki-Brezza-1.jpg" alt="Brezza">
-            <h2>Brezza</h2>
-        </div>
-        <div class="car-item" data-id="5">
-            <img src="https://www.engineeringmix.com/wp-content/uploads/2023/10/Hyundai_CRETA_SUV_Gallery_PC_1120x600_10-1024x549.jpg" alt="Creta">
-            <h2>Creta</h2>
-        </div>
-        <div class="car-item" data-id="6">
-            <img src="https://supernewsng.com/wp-content/uploads/2019/05/IMG_4979.jpg" alt="Venue">
-            <h2>Venue</h2>
-        </div>
-        <div class="car-item" data-id="7">
-            <img src="https://imgd.aeplcdn.com/0x0/n/cw/ec/46812/alcazar-exterior-right-front-three-quarter.jpeg?q=85" alt="Alcazar">
-            <h2>Alcazar</h2>
-        </div>
-        <div class="car-item" data-id="8">
-            <img src="https://images.livemint.com/img/2022/09/24/1600x900/Mahindrathar_1664005874494_1664005874760_1664005874760.jpg" alt="Thar">
-            <h2>Thar</h2>
-        </div>
-        <div class="car-item" data-id="9">
-            <img src="https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https:%2F%2Fcdni.autocarindia.com%2FExtraImages%2F20201124124812_Toyota-Innova-Crysta-2020.jpg&h=795&w=1200&c=0" alt="Innova Crysta">
-            <h2>Innova Crysta</h2>
-        </div>
-        <div class="car-item" data-id="10">
-            <img src="https://imgd-ct.aeplcdn.com/0x0/n/cw/ec/115025/innova-hycross-exterior-right-front-three-quarter-2.jpeg?isig=0&q=75" alt="Innova Hycross">
-            <h2>Innova Hycross</h2>
-        </div>
-        <div class="car-item" data-id="11">
-            <img src="https://imgcdn.oto.com/large/gallery/color/38/894/toyota-fortuner-color-112425.jpg" alt="Fortuner">
-            <h2>Fortuner</h2>
-        </div>
-        <div class="car-item" data-id="12">
-            <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/150603/i20-exterior-right-front-three-quarter-7.jpeg?isig=0&q=80" alt="i20">
-            <h2>i20</h2>
-        </div>
-        <div class="car-item" data-id="13">
-            <img src="https://images.hindustantimes.com/auto/img/2023/01/09/1600x900/Hyundai_Grand_i10_Nios_2023_1673262470906_1673262478925_1673262478925.jpeg" alt="i10">
-            <h2>i10</h2>
-        </div>
-        <div class="car-item" data-id="14">
-            <img src="https://th.bing.com/th/id/OIP.jsviCb-ZhvlDeEkNw2Zq0AHaE7?rs=1&pid=ImgDetMain" alt="Ignis">
-            <h2>Ignis</h2>
-        </div>
-        <div class="car-item" data-id="15">
-            <img src="https://images.summitmedia-digital.com/topgear/images/2021/02/01/suzuki-dzire-2021-main-1612162785.jpg" alt="Dzire">
-            <h2>Dzire</h2>
-        </div>
-        <div class="car-item" data-id="16">
-            <img src="https://cdni.autocarindia.com/ExtraImages/20230424024934_FRONX_LAUNCH.jpg" alt="Fronx">
-            <h2>Fronx</h2>
-        </div>
-        <div class="car-item" data-id="17">
-            <img src="https://www.drivespark.com/car-image/640x480x100/car/46063450-kia_carens.jpg" alt="Carens">
-            <h2>Carens</h2>
-        </div>    
-    </section>
+        <section class="car-list">
+            <div class="car-item" data-id="1">
+                <img src="https://img.indianautosblog.com/2020/03/24/maruti-swift-front-three-quarters-left-side-4a8f.jpg" alt="Swift">
+                <h2>Swift</h2>
+            </div>
+            <div class="car-item" data-id="2">
+                <img src="https://imgd.aeplcdn.com/1280x720/cw/ec/37710/Maruti-Suzuki-Baleno-Right-Front-Three-Quarter-147420.jpg?wm=0&q=100" alt="Baleno">
+                <h2>Baleno</h2>
+            </div>
+            <div class="car-item" data-id="3">
+                <img src="https://www.carscoops.com/wp-content/uploads/2018/04/suzuki-ertiga_web.jpg" alt="Ertiga">
+                <h2>Ertiga</h2>
+            </div>
+            <div class="car-item" data-id="4">
+                <img src="https://img-ik.cars.co.za/news-site-za/images/2022/06/Maruti-Suzuki-Brezza-1.jpg" alt="Brezza">
+                <h2>Brezza</h2>
+            </div>
+            <div class="car-item" data-id="5">
+                <img src="https://www.engineeringmix.com/wp-content/uploads/2023/10/Hyundai_CRETA_SUV_Gallery_PC_1120x600_10-1024x549.jpg" alt="Creta">
+                <h2>Creta</h2>
+            </div>
+            <div class="car-item" data-id="6">
+                <img src="https://supernewsng.com/wp-content/uploads/2019/05/IMG_4979.jpg" alt="Venue">
+                <h2>Venue</h2>
+            </div>
+            <div class="car-item" data-id="7">
+                <img src="https://imgd.aeplcdn.com/0x0/n/cw/ec/46812/alcazar-exterior-right-front-three-quarter.jpeg?q=85" alt="Alcazar">
+                <h2>Alcazar</h2>
+            </div>
+            <div class="car-item" data-id="8">
+                <img src="https://images.livemint.com/img/2022/09/24/1600x900/Mahindrathar_1664005874494_1664005874760_1664005874760.jpg" alt="Thar">
+                <h2>Thar</h2>
+            </div>
+            <div class="car-item" data-id="9">
+                <img src="https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https:%2F%2Fcdni.autocarindia.com%2FExtraImages%2F20201124124812_Toyota-Innova-Crysta-2020.jpg&h=795&w=1200&c=0" alt="Innova Crysta">
+                <h2>Innova Crysta</h2>
+            </div>
+            <div class="car-item" data-id="10">
+                <img src="https://imgd-ct.aeplcdn.com/0x0/n/cw/ec/115025/innova-hycross-exterior-right-front-three-quarter-2.jpeg?isig=0&q=75" alt="Innova Hycross">
+                <h2>Innova Hycross</h2>
+            </div>
+            <div class="car-item" data-id="11">
+                <img src="https://imgcdn.oto.com/large/gallery/color/38/894/toyota-fortuner-color-112425.jpg" alt="Fortuner">
+                <h2>Fortuner</h2>
+            </div>
+            <div class="car-item" data-id="12">
+                <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/150603/i20-exterior-right-front-three-quarter-7.jpeg?isig=0&q=80" alt="i20">
+                <h2>i20</h2>
+            </div>
+            <div class="car-item" data-id="13">
+                <img src="https://images.hindustantimes.com/auto/img/2023/01/09/1600x900/Hyundai_Grand_i10_Nios_2023_1673262470906_1673262478925_1673262478925.jpeg" alt="i10">
+                <h2>i10</h2>
+            </div>
+            <div class="car-item" data-id="14">
+                <img src="https://th.bing.com/th/id/OIP.jsviCb-ZhvlDeEkNw2Zq0AHaE7?rs=1&pid=ImgDetMain" alt="Ignis">
+                <h2>Ignis</h2>
+            </div>
+            <div class="car-item" data-id="15">
+                <img src="https://images.summitmedia-digital.com/topgear/images/2021/02/01/suzuki-dzire-2021-main-1612162785.jpg" alt="Dzire">
+                <h2>Dzire</h2>
+            </div>
+            <div class="car-item" data-id="16">
+                <img src="https://cdni.autocarindia.com/ExtraImages/20230424024934_FRONX_LAUNCH.jpg" alt="Fronx">
+                <h2>Fronx</h2>
+            </div>
+            <div class="car-item" data-id="17">
+                <img src="https://www.drivespark.com/car-image/640x480x100/car/46063450-kia_carens.jpg" alt="Carens">
+                <h2>Carens</h2>
+            </div>    
+        </section>
 
-    <!-- Modal for displaying car details -->
-    <div class="car-details-modal" id="carModal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="carName">Car Name</h2>
-            <p><strong>Price-</strong> <span id="carPrice"></span></p>
-            <p><strong>Year-</strong> <span id="carYear"></span></p>
-            <p><strong></strong> <span id="carDetails"></span></p>
+        <div class="car-details-modal" id="carModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="carName">Car Name</h2>
+                <p><strong>Price-</strong> <span id="carPrice"></span></p>
+                <p><strong>Year-</strong> <span id="carYear"></span></p>
+                <p><strong></strong> <span id="carDetails"></span></p>
+            </div>
         </div>
-    </div>
 
-    <!-- Include your script.js file -->
-    <script src="script.js"></script>
-</body>
+        <script>
+            function navigateToAdmin() {
+                const password = prompt("Enter Admin Password:");
+                if (password === "shived@login_update") {
+                    window.location.href = "admin.html";
+                } else {
+                    alert("Incorrect Password!");
+                }
+            }
+        </script>
+        <script src="script.js"></script>
+    </body>
 </html>
